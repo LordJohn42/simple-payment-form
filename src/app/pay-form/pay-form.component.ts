@@ -68,6 +68,7 @@ export class PayFormComponent implements OnInit {
   onCountrySelect(country: Country){
     console.log(country);
     // Type checkedconsole.log(method);
+    this.methodComponent.selectedMethod = null;
     this.country = country;
     this.typeOfPaymentForm.patchValue({method: ''}, {emitEvent: true, onlySelf: false});
 

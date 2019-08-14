@@ -9,16 +9,20 @@
 
     
 </a> -->
-<div class="row" style="margin-top:10px; ">
-    <div class="col-sm-6" *ngFor="let method of methods" style="padding: 10px;">
+<div class="row" style="margin-top:10px;">
+   
+    <div class="col-sm-6" *ngFor="let method of methods" class="payment-item">
+            <label [for]="method.id">
             <div class="card">
             <div class="card-body">
                 <img class="card-img-top" [src]="method.img_url" [alt]="method.name" style="max-height: 100px; max-width: 100px;">
-                <h6 class="card-title">{{method.name}}</h6>
+                <h6 style="max-width: 100px" class="card-title">{{method.name}}</h6>
                 <input type="radio" name="method" id="{{method.id}}" [(ngModel)]="selectedMethod" (change)="onChangePaymentMethod(method)"[value]="method.id" required>
             </div>
             </div>
+        </label>
     </div>
+    
 </div>
 <!-- <div class="row">
     <div class="col-2">
