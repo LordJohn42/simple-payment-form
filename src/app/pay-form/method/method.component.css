@@ -1,0 +1,6 @@
+.payment-method input {
+  visibility: hidden;
+}
+.payment-method input:checked {
+  box-shadow: 1px 1px 1px;
+}
