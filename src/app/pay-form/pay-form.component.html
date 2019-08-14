@@ -145,7 +145,7 @@
                             <div>
                                 <button id="payment-button" type="submit" [disabled]="!paymentForm.valid" class="btn btn-lg btn-info btn-block" (click)="modal.dismiss('Cross click')">
                                     <i class="fa fa-lock fa-lg"></i>&nbsp;
-                                    <span id="payment-button-amount">Pay {{paymentForm.amount}}</span>
+                                    <span id="payment-button-amount">Pay {{paymentForm.controls.amount.value}}</span>
                                     <span id="payment-button-sending" style="display:none;">Sending…</span>
                                 </button>
                             </div>
