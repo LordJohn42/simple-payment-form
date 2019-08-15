@@ -9,6 +9,9 @@ import { PayFormComponent } from './pay-form/pay-form.component';
 import { MethodComponent } from './pay-form/method/method.component';
 import { CountryComponent } from './pay-form/country/country.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxMaskModule.forRoot(options)
   ],
   providers: [],
   bootstrap: [AppComponent]

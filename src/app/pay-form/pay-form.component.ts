@@ -32,10 +32,11 @@ export class PayFormComponent implements OnInit {
   paymentForm = new FormGroup({
     amount: new FormControl({value: 100, disabled: true}, Validators.required),
     name: new FormControl('', [Validators.required]),
+    // Visa only
     cardNumber: new FormControl('', [Validators.pattern('^(?:4[0-9]{12}(?:[0-9]{3})?)$')]),
     expYear: new FormControl('1', [Validators.required]),
     expMonth: new FormControl('2018', Validators.required),
-    cvc: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{3,4}$')])
+    cvc: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{3,3}$')])
   });
   
 
@@ -89,7 +90,7 @@ export class PayFormComponent implements OnInit {
     // this.open()
   }
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', windowClass: 'fade'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

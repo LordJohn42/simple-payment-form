@@ -18,7 +18,7 @@
     ></app-method>
 </form>
 
-// This file may require('modal-template') ?
+<!-- // This file may require('modal-template') ? -->
 <ng-template #content let-modal>
     <style>
     .submit-button {
@@ -83,6 +83,7 @@
                                     autocomplete="cc-number" 
                                     placeholder="•••• •••• •••• ••••" 
                                     formControlName="cardNumber"
+                                    mask="0000 0000 0000 0000"
                                     [ngClass]="{'is-invalid': paymentForm.get('cardNumber').touched && paymentForm.get('cardNumber').invalid}"
                                 >
                                 <span class="invalid-feedback" >Enter a valid 16 digit card number</span>
@@ -128,6 +129,7 @@
                                         autocomplete="off"
                                         placeholder="•••"
                                         [ngClass]="{'is-invalid': paymentForm.get('cvc').touched && paymentForm.get('cvc').invalid}"
+                                        mask="000"
                                         formControlName="cvc">
                                 </div>
                             <div>
