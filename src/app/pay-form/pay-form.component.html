@@ -1,36 +1,24 @@
-<!--
-<app-payment-methods [country]="countryCode"></app-payment-methods>
-<app-payment-form [payment-method]="paymentMethod"></app-payment-form> 
--->
-<div class="row" style="margin-top: 50px;">
-    <div class="col-4"></div>
-    <div class="col-5">
-        <form novalidate (ngSubmit)="onSubmit(typeOfPaymentForm)" [formGroup]="typeOfPaymentForm">
-            <div class="row">
-                <div class="col-6">
-                        <app-country 
-                        [countries]="countries" 
-                        (countryChanged)="onCountrySelect($event)"
-                    ></app-country>
-                </div>
-                <div class="col-6" style="padding-top: 31px;">
-                        <button type="submit" class="btn btn-success" [disabled]="!typeOfPaymentForm.valid" (click)="open(content)">Submit</button> 
-                </div>
-            </div>
-            
-            <!-- *ngIf="country !== undefined && country.code "  -->
-            <app-method 
-            [country]="country" 
-            [methods]="methods"
-            (paymentMethod)="onMethodSelect($event)"
-        ></app-method>
-
-        </form>
+<form novalidate (ngSubmit)="onSubmit(typeOfPaymentForm)" [formGroup]="typeOfPaymentForm" class="form-inline">
+    <div class="form-group mb-2 mx-sm-3">
+        <label>Country: </label>
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+        <app-country 
+        [countries]="countries" 
+        (countryChanged)="onCountrySelect($event)"></app-country>
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+        <button type="submit" class="btn btn-success" [disabled]="!typeOfPaymentForm.valid" (click)="open(content)">Submit</button> 
     </div>
     
-</div>
+    <app-method
+        [country]="country" 
+        [methods]="methods"
+        (paymentMethod)="onMethodSelect($event)"
+    ></app-method>
+</form>
 
-
+// This file may require('modal-template') ?
 <ng-template #content let-modal>
     <style>
     .submit-button {
@@ -156,7 +144,4 @@
         </div>
     </div>
     </div>
-    <!-- <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-    </div> -->
 </ng-template>

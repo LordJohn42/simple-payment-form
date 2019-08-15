@@ -1,4 +1,3 @@
-<label for="country">Country</label>
 <select name="country" class="form-control" id="country" [(ngModel)]="country" (change)="onCountryChange()">
     <option [ngValue]="country" *ngFor="let country of countries" [selected]="country.selected === true">{{country.name}}</option>
 </select>
