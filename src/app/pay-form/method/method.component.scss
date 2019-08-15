@@ -1,1 +1,13 @@
-@import "method.component.css"
+@import "method.component.css";
+
+.payment-item .card-body h6 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+}
+
+.payment-item .card-body img {
+    min-width: 100px;
+    min-height: 40px;
+}
